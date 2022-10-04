@@ -6,6 +6,9 @@ export const Types = {
   ADD_TOOL_REQUEST: 'tools/ADD_TOOL_REQUEST',
   ADD_TOOL_SUCCESS: 'tools/ADD_TOOL_SUCCESS',
   ADD_TOOL_FAILURE: 'tools/ADD_TOOL_FAILURE',
+  UPDATE_TOOL_REQUEST: 'tools/  UPDATE_TOOL_REQUEST',
+  UPDATE_TOOL_SUCCESS: 'tools/  UPDATE_TOOL_SUCCESS',
+  UPDATE_TOOL_FAILURE: 'tools/  UPDATE_TOOL_FAILURE',
   REMOVE_TOOL_REQUEST: 'tools/REMOVE_TOOL_REQUEST',
   REMOVE_TOOL_SUCCESS: 'tools/REMOVE_TOOL_SUCCESS',
   REMOVE_TOOL_FAILURE: 'tools/REMOVE_TOOL_FAILURE',
@@ -18,6 +21,8 @@ const initialState = {
   error: null,
   successOnAdd: false,
   errorOnAdd: null,
+  successOnUpdate: false,
+  errorOnUpdate: null,
   successOnRemove: false,
   errorOnRemove: null,
 };
@@ -71,6 +76,29 @@ export default function tools(state = initialState, action) {
         successOnAdd: false,
         errorOnAdd: action.payload.message,
       };
+
+    case Types.UPDATE_TOOL_REQUEST:
+      return {
+        ...state,
+        loading: true,
+        successOnUpdate: false,
+        errorOnUpdate: '',
+      };
+    case Types.UPDATE_TOOL_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        successOnUpdate: true,
+        errorOnUpdate: '',
+      };
+    case Types.UPDATE_TOOL_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        successOnUpdate: false,
+        errorOnUpdate: action.payload.message,
+      };
+
     case Types.REMOVE_TOOL_REQUEST:
       return {
         ...state,
@@ -144,6 +172,22 @@ export const Creators = {
   }),
   addToolError: message => ({
     type: Types.ADD_TOOL_FAILURE,
+    payload: {
+      message,
+    },
+  }),
+
+  updateToolRequest: id => ({
+    type: Types.UPDATE_TOOL_REQUEST,
+    payload: {
+      id,
+    },
+  }),
+  updateToolSuccess: () => ({
+    type: Types.UPDATE_TOOL_SUCCESS,
+  }),
+  updateToolError: message => ({
+    type: Types.UPDATE_TOOL_FAILURE,
     payload: {
       message,
     },

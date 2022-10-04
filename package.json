@@ -1,7 +1,11 @@
 {
-  "name": "test-bossabox-frontend-reactjs-vuttr",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vuttr_front_end",
+  "version": "0.0.1",
+  "description": "Desafio Back-End",
+  "repository": "https://github.com/WarleyCoutinho/Desafio-Front-End.git",
+  "author": "Warley Coutinho",
+  "private": "false",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.0",
     "history": "^4.9.0",

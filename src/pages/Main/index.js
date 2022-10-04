@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 
-import {MdAdd} from "react-icons/md";
+import {MdAdd} from 'react-icons/md';
 
 import Loading from '~/components/Loading';
 import Title from '~/components/Title';
@@ -11,17 +11,19 @@ import SearchIput from '~/components/SearchIput';
 import Button from '~/components/Button';
 import Checkbox from '~/components/Checkbox';
 import ModalCreate from '~/pages/Main/components/Create';
+import ModalUpdate from '~/pages/Main/components/Update';
 import ModalRemove from '~/pages/Main/components/Remove';
 
-import { Creators as ToolsActions } from '../../store/ducks/tools';
+import {Creators as ToolsActions} from '../../store/ducks/tools';
 
-import { Container, Heading, Tools, Tool } from './styles';
+import {Container, Heading, Tools, Tool} from './styles';
 
 export default function Main() {
   const [search, setSearch] = useState('');
   const [tagsOnly, setTagsOnly] = useState(false);
   const [tool, setTool] = useState(false);
   const [modalCreate, setModalCreate] = useState(false);
+  const [modalUpdate, setModalUpdate] = useState(false);
   const [modalRemove, setModalRemove] = useState(false);
   const tools = useSelector(state => state.tools);
   const dispatch = useDispatch();
@@ -35,6 +37,11 @@ export default function Main() {
     setModalCreate(false);
   }
 
+  function handleUpdate(tool) {
+    dispatch(ToolsActions.updateToolRequest(tool.id));
+    setModalUpdate(false);
+  }
+
   function handleRemove(tool) {
     dispatch(ToolsActions.removeToolRequest(tool.id));
     setModalRemove(false);
@@ -42,7 +49,7 @@ export default function Main() {
 
   return (
     <Container>
-      { !!modalCreate && (
+      {!!modalCreate && (
         <ModalCreate
           onClose={setModalCreate}
           onSave={handleAdd}
@@ -50,7 +57,21 @@ export default function Main() {
         />
       )}
 
-      { !!modalRemove && !!tool ? (
+      {!!modalUpdate && !!tool ? (
+        <ModalUpdate
+          data={tool}
+          onClose={() => {
+            setTool(false);
+            setModalUpdate(false);
+          }}
+          onRemove={handleUpdate}
+          open={modalUpdate}
+        />
+      ) : (
+        ``
+      )}
+
+      {!!modalRemove && !!tool ? (
         <ModalRemove
           data={tool}
           onClose={() => {
@@ -60,7 +81,9 @@ export default function Main() {
           onRemove={handleRemove}
           open={modalRemove}
         />
-      ) : ``}
+      ) : (
+        ``
+      )}
 
       <Heading>
         <Title size="4rem">VUTTR</Title>
@@ -76,27 +99,43 @@ export default function Main() {
       </Tools>
 
       <div className="news">
-        {
-          tools.loading ? (
-            <Loading>Carregando</Loading>
-          ) : (
-            <>
-              {
-                tools.data.map(item =>
-                  <News
-                    toogleModal={(tool) => {
-                      setTool(tool);
-                      setModalRemove(true);
-                    }}
-                    key={item.id}
-                    data={item}
-                    search={search}
-                  />
-                )
-              }
-            </>
-          )
-        }
+        {tools.loading ? (
+          <Loading>Carregando</Loading>
+        ) : (
+          <>
+            {tools.data.map(item => (
+              <News
+                toogleModal={tool => {
+                  setTool(tool);
+                  setModalUpdate(true);
+                }}
+                key={item.id}
+                data={item}
+                search={search}
+              />
+            ))}
+          </>
+        )}
+      </div>
+
+      <div className="news">
+        {tools.loading ? (
+          <Loading>Carregando</Loading>
+        ) : (
+          <>
+            {tools.data.map(item => (
+              <News
+                toogleModal={tool => {
+                  setTool(tool);
+                  setModalRemove(true);
+                }}
+                key={item.id}
+                data={item}
+                search={search}
+              />
+            ))}
+          </>
+        )}
       </div>
     </Container>
   );

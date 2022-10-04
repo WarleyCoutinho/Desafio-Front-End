@@ -1,9 +1,13 @@
-import { all, takeLatest } from 'redux-saga/effects';
+import {all, takeLatest} from 'redux-saga/effects';
 
-import { Types as ToolsTypes } from '../ducks/tools';
+import {Types as ToolsTypes} from '../ducks/tools';
 
 import {
-  getAllRequest, getByTagRequest, addToolRequest, removeToolRequest,
+  getAllRequest,
+  getByTagRequest,
+  addToolRequest,
+  updateToolRequest,
+  removeToolRequest,
 } from './tools';
 
 export default function* rootSaga() {
@@ -11,6 +15,7 @@ export default function* rootSaga() {
     takeLatest(ToolsTypes.GET_ALL_REQUEST, getAllRequest),
     takeLatest(ToolsTypes.GET_BY_TAG_REQUEST, getByTagRequest),
     takeLatest(ToolsTypes.ADD_TOOL_REQUEST, addToolRequest),
+    takeLatest(ToolsTypes.UPDATE_TOOL_REQUEST, updateToolRequest),
     takeLatest(ToolsTypes.REMOVE_TOOL_REQUEST, removeToolRequest),
   ]);
 }
