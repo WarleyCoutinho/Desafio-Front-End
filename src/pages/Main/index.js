@@ -98,13 +98,13 @@ export default function Main() {
         <Button onClick={setModalCreate} icon={<MdAdd />} border text="Add" />
       </Tools>
 
-      <div className="news">
+      <div className="ModalUpdate">
         {tools.loading ? (
           <Loading>Carregando</Loading>
         ) : (
           <>
             {tools.data.map(item => (
-              <News
+              <ModalUpdate
                 toogleModal={tool => {
                   setTool(tool);
                   setModalUpdate(true);
