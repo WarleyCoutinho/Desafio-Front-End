@@ -55,6 +55,8 @@ documentação da aplicação em Word, [clique aqui](https://docs.google.com/doc
 
 - [Ver aqui](https://drive.google.com/file/d/1chl8ghqTtV7C95ImrqOhVA8vkfvL58LV/view?usp=sharing)
 
+- [Ver aqui](https://drive.google.com/file/d/12TErVgLjU4po96lFIEVps6vS9lrg6M5c/view?usp=sharing)
+
 #### Remover e Desafazer a remoção da ferramenta
 
 - [Ver aqui](https://drive.google.com/file/d/1XQFuQIrPQVkJ1W4qMYE0tV0maODp8E-Q/view?usp=sharing)
