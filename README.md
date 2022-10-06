@@ -6,6 +6,8 @@ Sua tarefa é construir uma API e banco de dados para a aplicação VUTTR (Very 
 
 Este projeto é um desafio proposto pela [Kingspan Isoeste](https://kingspan-isoeste.com.br)
 
+Projeto Rodando em produção [Vuttur-Front](https://vuttur.vercel.app)
+
 ## `Tecnologias utilizadas na Aplicação`
 
 - **axios:** Fazer a comunição com o Back-end,
@@ -45,12 +47,22 @@ Após clonar o Back-end do projeto, seguir os passos de iniciação da API e clo
 
 ## `Como usar`
 
+Com a aplicação em execução, você pode acessar a documentação da aplicação, [clique aqui](https://app.swaggerhub.com/apis/WARLEYCOUTINHO_1/desafio-back_end_vuttr_very_useful_tools_to_remember/0.0.1)
+
+documentação da aplicação em Word, [clique aqui](https://docs.google.com/document/d/1fni242OneWDzfHS-_RtKXJ8tqak-DBr9q04HcqIvsr4/edit?usp=sharing)
+
 #### Adicionar uma nova ferramenta
+
+- [Ver aqui](https://drive.google.com/file/d/1chl8ghqTtV7C95ImrqOhVA8vkfvL58LV/view?usp=sharing)
 
 #### Remover e Desafazer a remoção da ferramenta
 
-#### Pesquisar
+- [Ver aqui](https://drive.google.com/file/d/1XQFuQIrPQVkJ1W4qMYE0tV0maODp8E-Q/view?usp=sharing)
 
 #### Pesquisar apenas por tags
 
+- [Ver aqui](https://drive.google.com/file/d/1ArSWxLp-wMBQNldWrtik6Zmv7Mf52aAr/view?usp=sharing)
+
 #### Clicar no link da ferramenta
+
+- [Ver aqui](https://drive.google.com/file/d/1YsenXCBQOTC0H-j9ntwf-fN2E7HsDwva/view?usp=sharing)
